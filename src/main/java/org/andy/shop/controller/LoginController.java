@@ -16,7 +16,7 @@ public class LoginController {
 	@Resource
 	private UserService userService;
 	
-	@RequestMapping("/login")
+	@RequestMapping("/login.do")
 	public ModelAndView  login(){
 		String myName="孟创";
 		//获取所有用户

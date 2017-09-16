@@ -5,7 +5,9 @@
 	id="WebApp_ID" version="2.5">
 
 	<display-name>sdtc</display-name>
-
+	
+	<!--application-context.xml是全局的，应用于多个serverlet，配合listener一起使用，web.xml中配置如下：  -->
+	<!-- application-context.xml这个一般是采用非spring mvc架构，用来加载Application Context -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml,classpath:spring-mybatis.xml</param-value>
@@ -36,7 +38,9 @@
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
-
+	
+	<!-- spring-mvc.xml 是spring mvc的配置，web.xml中配置如下： -->
+	<!--如果直接采用SpringMVC，只需要把所有相关配置放到spring-mvc.xml中就好，一般spring mvc项目用不到多个serverlet  -->
 	<servlet>
 		<description>spring mvc servlet</description>
 		<servlet-name>rest</servlet-name>
@@ -51,7 +55,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>rest</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
 	<!-- 配置session超时时间，单位分钟 -->

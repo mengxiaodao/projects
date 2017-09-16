@@ -18,7 +18,7 @@ public class LoginController {
 	
 	@RequestMapping("/login.do")
 	public ModelAndView  login(){
-		String myName="孟创";
+		String myName="孟创ceshi";
 		//获取所有用户
 		List<User> users = userService.getAllUsers();
 		
